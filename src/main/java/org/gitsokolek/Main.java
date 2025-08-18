@@ -1,20 +1,19 @@
 package org.gitsokolek;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main
-{
-	public static void main(String[] args)
-	{
-		//TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-		// to see how IntelliJ IDEA suggests fixing it.
-		System.out.printf("Hello and welcome!");
+import org.gitsokolek.botanicaltree.TreeFactory;
+import org.gitsokolek.botanicaltree.plantorgans.BotanicalTreeOrgan;
+import org.gitsokolek.botanicaltree.plantorgans.interfaces.PlantOrgans;
 
-		for (int i = 1; i <= 5; i++)
-		{
-			//TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-			// for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-			System.out.println("i = " + i);
-		}
+public class Main {
+	public static void main(String[] args) {
+		// losowe liściaste
+		BotanicalTreeOrgan broad = TreeFactory.createRandomTree(4, 3, 4, PlantOrgans.LEAF.BROAD_LEAF, 123L);
+		System.out.println("=== Random broad-leaf ===");
+		broad.grow();
+
+		// losowe iglaste
+		BotanicalTreeOrgan conifer = TreeFactory.createRandomTree(4, 3, 5, PlantOrgans.LEAF.ACICULAR_LEAF);
+		System.out.println("\n=== Random coniferous ===");
+		conifer.grow();
 	}
 }
